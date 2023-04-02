@@ -12,6 +12,7 @@ import lombok.ToString;
 @Getter
 @Setter
 public class ServiceTask {
+    //todo: use Atm class instead of duplicating the same fields (or inheritance?)
     @Min(1)
     @Max(9999)
     private int region;
@@ -20,6 +21,7 @@ public class ServiceTask {
     @Max(9999)
     private int atmId;
 
+    //todo consider creating method to describe returning region and atmId instead of toString()
+    @ToString.Exclude
     private RequestType requestType;
-
 }
