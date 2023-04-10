@@ -25,8 +25,8 @@ public class OnlineGameController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Clan>> calculate(@RequestBody @Valid Players players) {
-        List<Clan> result = onlineGameService.calculate(players);
+    public ResponseEntity<List<List<Clan>>> calculate(@RequestBody @Valid Players players) {
+        List<List<Clan>> result = onlineGameService.calculate(players);
         return ResponseEntity.ok(result);
     }
 }

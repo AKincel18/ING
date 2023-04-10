@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class OnlineGameService {
-    public List<Clan> calculate(Players players) {
+    public List<List<Clan>> calculate(Players players) {
         return new ArrayList<>();
     }
 }
