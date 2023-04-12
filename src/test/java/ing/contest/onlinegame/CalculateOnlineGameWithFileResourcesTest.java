@@ -22,8 +22,8 @@ public class CalculateOnlineGameWithFileResourcesTest {
     private OnlineGameService onlineGameService;
 
     @Test
-    @DisplayName("should correctly calculate order for example 1 request")
-    public void calculateOrderExampleOneShouldReturnExpectedResult() {
+    @DisplayName("should correctly calculate online game for example request")
+    public void calculateOnlineGameExampleOneShouldReturnExpectedResult() {
         //given
         Players players = FileResourceUtils.getPlayers(EXAMPLE_REQUEST_FILE);
 
