@@ -11,25 +11,27 @@ import java.util.List;
 @Service
 public class OnlineGameService {
     public List<List<Clan>> calculate(Players players) {
-        players.getClans().sort(Comparator.comparing(Clan::getPoints).reversed().thenComparing(Clan::getNumberOfPlayers));
-        List<List<Clan>> result = new ArrayList<>();
-        do {
-            List<Clan> group = createGroup(players);
-            result.add(group);
-            players.getClans().removeAll(group);
-        } while (players.getClans().size() > 0);
-        return result;
+        List<Clan> clans = players.getClans();
+        int groupCount = players.getGroupCount();
+        clans.sort(Comparator.comparing(Clan::getPoints).reversed().thenComparing(Clan::getNumberOfPlayers));
+        List<List<Clan>> orderGroups = new ArrayList<>();
+        while (!clans.isEmpty()) {
+            List<Clan> group = createGroup(clans, groupCount);
+            orderGroups.add(group);
+            clans.removeAll(group);
+        }
+        return orderGroups;
     }
 
-    private List<Clan> createGroup(Players players) {
+    private List<Clan> createGroup(List<Clan> clans, int maxGroupCount) {
         List<Clan> group = new ArrayList<>();
-        int groupSize = 0;
-        for (Clan clan : players.getClans()) {
-            if (players.getGroupCount() >= clan.getNumberOfPlayers() + groupSize) {
+        int groupCount = 0;
+        for (Clan clan : clans) {
+            if (maxGroupCount >= clan.getNumberOfPlayers() + groupCount) {
                 group.add(clan);
-                groupSize += clan.getNumberOfPlayers();
+                groupCount += clan.getNumberOfPlayers();
             }
-            if (groupSize == players.getGroupCount()) {
+            if (groupCount == maxGroupCount) {
                 return group;
             }
         }
