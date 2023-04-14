@@ -1,6 +1,7 @@
 package ing.contest.onlinegame;
 
 import ing.contest.common.FileResourceUtils;
+import ing.contest.onlinegame.generator.DataGenerator;
 import ing.contest.onlinegame.model.Clan;
 import ing.contest.onlinegame.model.Players;
 import ing.contest.onlinegame.service.OnlineGameService;
@@ -33,5 +34,10 @@ public class CalculateOnlineGameWithFileResourcesTest {
 
         //then
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void dataGenerator() {
+        DataGenerator.generateData();
     }
 }
