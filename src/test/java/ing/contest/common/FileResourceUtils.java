@@ -6,6 +6,8 @@ import ing.contest.atmservice.model.Atm;
 import ing.contest.atmservice.model.ServiceTask;
 import ing.contest.onlinegame.model.Clan;
 import ing.contest.onlinegame.model.Players;
+import ing.contest.transactions.model.Account;
+import ing.contest.transactions.model.Transaction;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +18,7 @@ public class FileResourceUtils {
 
     public static final String ATM_SERVICE_FOLDER_NAME = "atmservice/";
     public static final String ONLINE_GAME_FOLDER_NAME = "onlinegame/";
+    public static final String TRANSACTION_FOLDER_NAME = "transaction/";
 
     public static List<ServiceTask> getServiceTasks(String fileName) {
         return getResource(ATM_SERVICE_FOLDER_NAME, fileName, new TypeReference<>() {});
@@ -31,6 +34,14 @@ public class FileResourceUtils {
 
     public static List<List<Clan>> getClans(String fileName) {
         return getResource(ONLINE_GAME_FOLDER_NAME, fileName, new TypeReference<>() {});
+    }
+
+    public static List<Transaction> getTransactions(String fileName) {
+        return getResource(TRANSACTION_FOLDER_NAME, fileName, new TypeReference<>() {});
+    }
+
+    public static List<Account> getAccounts(String fileName) {
+        return getResource(TRANSACTION_FOLDER_NAME, fileName, new TypeReference<>() {});
     }
 
     private static <T> T getResource(String folderName, String fileName, TypeReference<T> typeReference) {
