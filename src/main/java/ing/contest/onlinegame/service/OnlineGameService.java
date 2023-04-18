@@ -11,16 +11,16 @@ import java.util.List;
 @Service
 public class OnlineGameService {
     public List<List<Clan>> calculate(Players players) {
-        List<Clan> clans = players.getClans();
+        List<Clan> clans = new ArrayList<>(players.getClans());
         int groupCount = players.getGroupCount();
         clans.sort(Comparator.comparing(Clan::getPoints).reversed().thenComparing(Clan::getNumberOfPlayers));
-        List<List<Clan>> orderGroups = new ArrayList<>();
+        List<List<Clan>> orderedGroups = new ArrayList<>();
         while (!clans.isEmpty()) {
             List<Clan> group = createGroup(clans, groupCount);
-            orderGroups.add(group);
+            orderedGroups.add(group);
             clans.removeAll(group);
         }
-        return orderGroups;
+        return orderedGroups;
     }
 
     private List<Clan> createGroup(List<Clan> clans, int maxGroupCount) {
