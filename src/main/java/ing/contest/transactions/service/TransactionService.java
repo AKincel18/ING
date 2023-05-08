@@ -11,13 +11,13 @@ import java.util.Map;
 
 @Service
 public class TransactionService {
-    private final Map<String, Account> report = new HashMap<>();
 
     public List<Account> createReport(List<Transaction> transactions) {
+        final Map<String, Account> report = new HashMap<>();
 
-        for (Transaction transaction : transactions) {
-            Account debitAccount = getAccountFromReport(transaction.getDebitAccount());
-            Account creditAccount = getAccountFromReport(transaction.getCreditAccount());
+        transactions.forEach(transaction -> {
+            Account debitAccount = getOrCreateAccount(report, transaction.getDebitAccount());
+            Account creditAccount = getOrCreateAccount(report, transaction.getCreditAccount());
 
             debitAccount.incrementDebitCount();
             creditAccount.incrementCreditCount();
@@ -27,7 +27,7 @@ public class TransactionService {
 
             debitAccount.roundBalance();
             creditAccount.roundBalance();
-        }
+        });
 
         return report.values()
                 .stream()
@@ -35,8 +35,7 @@ public class TransactionService {
                 .toList();
     }
 
-    private Account getAccountFromReport(String accountString) {
-        Account account = report.putIfAbsent(accountString, new Account(accountString));
-        return account != null ? account : report.get(accountString);
+    private Account getOrCreateAccount(Map<String, Account> report, String accountString) {
+        return report.computeIfAbsent(accountString, Account::new);
     }
 }

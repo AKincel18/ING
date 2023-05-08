@@ -1,14 +1,13 @@
 package ing.contest.transactions.model;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import static ing.contest.transactions.utils.Utils.roundTo2DecimalPlaces;
 
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 public class Account {
-    //todo add fields validation
     private String account;
     private int debitCount;
     private int creditCount;
@@ -35,6 +34,6 @@ public class Account {
     }
 
     public void roundBalance() {
-        balance = (float) (Math.round(balance * 10.0) / 10.0);
+        balance = roundTo2DecimalPlaces(balance);
     }
 }

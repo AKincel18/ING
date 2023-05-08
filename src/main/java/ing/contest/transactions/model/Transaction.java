@@ -1,15 +1,18 @@
 package ing.contest.transactions.model;
 
-import lombok.*;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 public class Transaction {
-    //todo add fields validation
+
+    @Size(min = 26, max = 26)
     private String debitAccount;
+
+    @Size(min = 26, max = 26)
     private String creditAccount;
+
     private float amount;
 }
