@@ -1,4 +1,3 @@
-2. Add custom exception message when validation failed
-4. Look at services once again 
+4. Look at services once again
 5. Look at differences in the code and made it analogous
 6. Consider all todos

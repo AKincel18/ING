@@ -1,5 +1,6 @@
 package ing.contest.transactions.controller;
 
+import ing.contest.validation.ValidationExceptionHandler;
 import ing.contest.transactions.model.Account;
 import ing.contest.transactions.model.Transaction;
 import ing.contest.transactions.service.TransactionService;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/transactions/report")
 @Validated
+@ValidationExceptionHandler
 public class TransactionController {
 
     private final TransactionService transactionService;

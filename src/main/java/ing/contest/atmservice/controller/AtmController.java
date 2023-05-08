@@ -3,6 +3,7 @@ package ing.contest.atmservice.controller;
 import ing.contest.atmservice.model.Atm;
 import ing.contest.atmservice.model.ServiceTask;
 import ing.contest.atmservice.service.AtmService;
+import ing.contest.validation.ValidationExceptionHandler;
 import jakarta.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/atms/calculateOrder")
 @Validated
+@ValidationExceptionHandler
 public class AtmController {
 
     private final AtmService atmService;

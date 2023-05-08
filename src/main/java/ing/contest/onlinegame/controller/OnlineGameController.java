@@ -1,5 +1,6 @@
 package ing.contest.onlinegame.controller;
 
+import ing.contest.validation.ValidationExceptionHandler;
 import ing.contest.onlinegame.model.Clan;
 import ing.contest.onlinegame.model.Players;
 import ing.contest.onlinegame.service.OnlineGameService;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/onlinegame/calculate")
 @Validated
+@ValidationExceptionHandler
 public class OnlineGameController {
 
     private final OnlineGameService onlineGameService;
