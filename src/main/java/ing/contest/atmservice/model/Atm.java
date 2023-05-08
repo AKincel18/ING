@@ -1,24 +1,27 @@
 package ing.contest.atmservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class Atm {
 
     @Min(1)
     @Max(9999)
-    private int region;
+    protected int region;
 
     @Min(1)
     @Max(9999)
-    private int atmId;
+    protected int atmId;
 
-    public Atm(ServiceTask serviceTask) {
-        region = serviceTask.getRegion();
-        atmId = serviceTask.getAtmId();
+    @JsonIgnore
+    public String getRegionAtmId() {
+        return region + ":" + atmId;
     }
 }
