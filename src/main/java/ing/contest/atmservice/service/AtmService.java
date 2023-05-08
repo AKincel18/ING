@@ -9,6 +9,7 @@ import java.util.*;
 
 @Service
 public class AtmService {
+
     public List<Atm> calculateOrder(List<ServiceTask> serviceTasks) {
         filterByHighestPriority(serviceTasks);
         Map<Integer, Map<RequestType, List<ServiceTask>>> routesByRegion = calculateRoutesByRegion(serviceTasks);
