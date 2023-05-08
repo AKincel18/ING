@@ -2,15 +2,11 @@ package ing.contest.onlinegame.model;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import lombok.*;
+import lombok.Data;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 public class Clan {
+
     @Min(1)
     @Max(1000)
     private int numberOfPlayers;

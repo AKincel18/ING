@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class OnlineGameService {
+
     public List<List<Clan>> calculate(Players players) {
         List<Clan> clans = new ArrayList<>(players.getClans());
         int groupCount = players.getGroupCount();

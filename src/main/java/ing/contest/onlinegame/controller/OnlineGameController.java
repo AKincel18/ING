@@ -1,11 +1,13 @@
 package ing.contest.onlinegame.controller;
 
+import ing.contest.validation.ValidationExceptionHandler;
 import ing.contest.onlinegame.model.Clan;
 import ing.contest.onlinegame.model.Players;
 import ing.contest.onlinegame.service.OnlineGameService;
 import jakarta.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/onlinegame/calculate")
+@Validated
+@ValidationExceptionHandler
 public class OnlineGameController {
 
     private final OnlineGameService onlineGameService;
