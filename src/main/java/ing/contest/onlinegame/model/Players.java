@@ -14,8 +14,10 @@ import java.util.List;
 @Getter
 @Setter
 public class Players {
+
     @Min(1)
     @Max(1000)
     private int groupCount;
+
     private List<Clan> clans;
 }

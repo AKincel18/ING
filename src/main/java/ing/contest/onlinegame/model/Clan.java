@@ -11,6 +11,7 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 public class Clan {
+
     @Min(1)
     @Max(1000)
     private int numberOfPlayers;

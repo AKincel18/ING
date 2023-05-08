@@ -12,6 +12,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 public class Atm {
+
     @Min(1)
     @Max(9999)
     private int region;

@@ -8,9 +8,13 @@ import static ing.contest.transactions.utils.Utils.roundTo2DecimalPlaces;
 @NoArgsConstructor
 @Data
 public class Account {
+
     private String account;
+
     private int debitCount;
+
     private int creditCount;
+
     private float balance;
 
     public Account(String account) {
