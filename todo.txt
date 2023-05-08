@@ -1,6 +1,4 @@
-1. Add validated to all controller + testing
 2. Add custom exception message when validation failed
-3. Change lombok annotations to @Data when it's possible
 4. Look at services once again 
 5. Look at differences in the code and made it analogous
 6. Consider all todos

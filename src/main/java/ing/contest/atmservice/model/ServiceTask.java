@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ServiceTask {
-    //todo use Atm class instead of duplicating the same fields (or inheritance?)
+    //todo: use Atm class instead of duplicating the same fields (or inheritance?)
     @Min(1)
     @Max(9999)
     private int region;
