@@ -56,7 +56,7 @@ on:
       CRDA_KEY:
         required: false
       SNYK_TOKEN:
-        required: false
+        required: true
   workflow_dispatch:
 
   push:
